@@ -46,6 +46,8 @@ async def burt():
 		await bot.say("Ernie? Ernie where are you?")
 	elif(foo == 3)
 		await bot.say("Have you heard the latest album by Corpselover?")
+	elif(foo == 4)
+		await bot.say("Get Stickin OUT of here! :(")
 	else #ya dun goofed
 		await bot.say("I'm sorry, !burt appears to be broken.")
 	
