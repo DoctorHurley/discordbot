@@ -5,7 +5,7 @@ import json
 import datetime
 import threading
 
-bot = commands.Bot(command_prefix="!"), description="katy bot")
+bot = commands.Bot(command_prefix="!", description="katy bot")
 
 time_startup = datetime.datetime.now()
 
