@@ -4,6 +4,7 @@ import asyncio
 import json
 import datetime
 import threading
+import random
 
 bot = commands.Bot(command_prefix="!", description="katy bot")
 
@@ -38,6 +39,14 @@ async def matt():
 
 @bot.command()
 async def burt():
-	await bot.say("http://i.imgur.com/QgrtpDP.png")
+	foo = random.randint(1,4)
+	if(foo == 1):
+		await bot.say("Gee willikers, we're losing mid inhib! Better push bot lane")
+	elif(foo == 2):
+		await bot.say("Ernie? Ernie where are you?")
+	elif(foo == 3):
+		await bot.say("Have you heard the latest album by Corpselover?")
+	else: #ya dun goofed
+		await bot.say("I'm sorry, !burt appears to be broken.")
 
 bot.run(config['token'])
