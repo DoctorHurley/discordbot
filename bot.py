@@ -36,6 +36,21 @@ async def uptime():
 @bot.command()
 async def matt():
 	await bot.say("http://i.imgur.com/QgrtpDP.png")
+	
+@bot.command()
+async def burt():
+	foo = random.randint(1, 4)
+	if(foo == 1)
+		await bot.say("Gee willikers, we're losing mid inhib! Better push bot lane")
+	elif(foo == 2)
+		await bot.say("Ernie? Ernie where are you?")
+	elif(foo == 3)
+		await bot.say("Have you heard the latest album by Corpselover?")
+	elif(foo == 4)
+		await bot.say("Get Stickin OUT of here! :(")
+	else #ya dun goofed
+		await bot.say("I'm sorry, !burt appears to be broken.")
+	
 
 @bot.command()
 async def burt():
