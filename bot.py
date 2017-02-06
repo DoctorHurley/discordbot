@@ -36,4 +36,8 @@ async def uptime():
 async def matt():
 	await bot.say("http://i.imgur.com/QgrtpDP.png")
 
+@bot.command()
+async def burt()
+	await bot.say("http://i.imgur.com/QgrtpDP.png")
+
 bot.run(config['token'])
