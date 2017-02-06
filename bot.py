@@ -32,4 +32,8 @@ async def uptime():
 
 	await bot.say(timedelta_str(datetime.datetime.now()-time_startup))
 
+@bot.command()
+async def matt():
+	await bot.say("http://i.imgur.com/QgrtpDP.png")
+
 bot.run(config['token'])
