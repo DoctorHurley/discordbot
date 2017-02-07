@@ -1,3 +1,7 @@
+# WANTS:
+# -notification when a certain user comes online
+# -spam prevention: if two identical messages are sent by the same user within 10s of each other, time them out for n seconds
+
 import discord
 from discord.ext import commands
 from twython import Twython
@@ -16,6 +20,8 @@ time_startup = datetime.datetime.now()
 with open('./config.json','r') as c_json:
         config = json.load(c_json)
 
+# twython stuff-----------------------------------------------------	
+	
 twitter = Twython(config['APP_KEY'], config['APP_SECRET'])
 
 def test_limit(user):
@@ -37,6 +43,8 @@ def get_followers(user,count):
 
         return(followers)
 
+# core commands-----------------------------------------------------
+
 @bot.event
 async def on_ready():
 	print("Logged in as")
@@ -57,10 +65,24 @@ async def uptime():
 
 	await bot.say(timedelta_str(datetime.datetime.now()-time_startup))
 
+#image/user (spam) related commands-----------------------------------------
+	
 @bot.command()
 async def matt():
 	await bot.say("http://i.imgur.com/QgrtpDP.png")
 
+@bot.command()
+async def matt2():
+	await bot.say("https://cdn.discordapp.com/attachments/217772762859700224/245347422555865099/photo_5.JPG")
+	
+@bot.command()
+async def kyle():
+	await bot.say("https://cdn.discordapp.com/attachments/217772762859700224/276956938686955520/eJwFwcENwyAMAMBd-BdsF3DIGh2gQgRBpAQQuK-qu_fuqz7zUruqImPtxhznSn0eekmfsWRdei9XjuNcOvXbRJGY6p2bLEPIzMSeNhcYgMgasoE3dACWAJ5gvTOvNHNuq3Z5E6BHxPAgcgykRyvq9we9tycv.png")
+	
+@bot.command()
+async def nate():
+	await bot.say("Where's best in tech?")
+	
 @bot.command()
 async def burt():
 	foo = random.randint(1, 4)
@@ -75,11 +97,14 @@ async def burt():
 	else: #ya dun goofed
 		await bot.say("I'm sorry, !burt appears to be broken.")
 
+# more twython stuff-----------------------------------------------------
+		
 @bot.command()
 async def followers(user):
 
 	await bot.say(test_limit(user))
 
+# end commands-----------------------------------------------------
 
 bot.run(config['token'])
 storage.flush()
